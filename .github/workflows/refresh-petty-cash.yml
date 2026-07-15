@@ -1,0 +1,59 @@
+name: Refresh Petty Cash Data
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+
+      - name: Write .env from secrets
+        env:
+          ZOHO_CLIENT_ID: ${{ secrets.ZOHO_CLIENT_ID }}
+          ZOHO_CLIENT_SECRET: ${{ secrets.ZOHO_CLIENT_SECRET }}
+          ZOHO_REFRESH_TOKEN: ${{ secrets.ZOHO_REFRESH_TOKEN }}
+          ZOHO_ORGANIZATION_ID: ${{ secrets.ZOHO_ORGANIZATION_ID }}
+          ZOHO_ACCOUNTS_URL: ${{ secrets.ZOHO_ACCOUNTS_URL }}
+          ZOHO_API_DOMAIN: ${{ secrets.ZOHO_API_DOMAIN }}
+        run: |
+          cat > .env <<EOF
+          ZOHO_CLIENT_ID=$ZOHO_CLIENT_ID
+          ZOHO_CLIENT_SECRET=$ZOHO_CLIENT_SECRET
+          ZOHO_REFRESH_TOKEN=$ZOHO_REFRESH_TOKEN
+          ZOHO_ORGANIZATION_ID=$ZOHO_ORGANIZATION_ID
+          ZOHO_ACCOUNTS_URL=$ZOHO_ACCOUNTS_URL
+          ZOHO_API_DOMAIN=$ZOHO_API_DOMAIN
+          EOF
+
+      - name: Run petty_cash_report.py
+        run: python petty_cash_report.py
+
+      - name: Remove .env
+        if: always()
+        run: rm -f .env
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add petty_cash_*.json petty_cash_dashboard.html
+          if git diff --cached --quiet; then
+            echo "No changes to commit - dashboard already up to date."
+          else
+            git commit -m "Auto-refresh Petty Cash data - $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
