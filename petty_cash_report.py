@@ -22,6 +22,7 @@ import argparse
 import calendar
 import json
 import os
+import re
 import sys
 import time
 from datetime import date, datetime, timedelta
@@ -51,6 +52,12 @@ API_DOMAIN = os.getenv("ZOHO_API_DOMAIN", "https://www.zohoapis.in/erp/v3")
 ACCOUNT_ID = "3545384000000056141"
 ACCOUNT_NAME = "Petty Cash"
 PROGRESS_EVERY = 200  # ~once per page, since per_page=200 below
+DASHBOARD_PATH = "petty_cash_dashboard.html"
+
+_DASHBOARD_DATA_BLOCK = re.compile(
+    r'(<script type="application/json" id="petty-cash-data">\n).*?(\n</script>)',
+    re.DOTALL,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -371,6 +378,33 @@ def fetch_month_customer_payments(token: str, start_str: str, end_str: str) -> l
     return entries
 
 
+def update_dashboard_html(result: dict, html_path: str = DASHBOARD_PATH) -> bool:
+    """Re-embed freshly generated data into the dashboard's inline JSON
+    <script> block, so petty_cash_dashboard.html always shows this run's
+    data on next open - no server needed, since fetch() over file:// is
+    blocked by browsers' CORS policy (confirmed empirically) and static
+    double-click viewing is the whole point of this file.
+    """
+    if not os.path.exists(html_path):
+        print(f"[WARN] {html_path} not found - skipping dashboard refresh.")
+        return False
+
+    with open(html_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    payload = json.dumps(result, indent=2, ensure_ascii=False)
+    new_html, count = _DASHBOARD_DATA_BLOCK.subn(
+        lambda m: m.group(1) + payload + m.group(2), html, count=1,
+    )
+    if count == 0:
+        print(f"[WARN] Could not find embedded-data <script> block in {html_path} - dashboard not updated.")
+        return False
+
+    with open(html_path, "w", encoding="utf-8") as f:
+        f.write(new_html)
+    return True
+
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
@@ -410,6 +444,9 @@ def main():
 
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
+
+    if update_dashboard_html(result):
+        print(f"Refreshed {DASHBOARD_PATH} with this run's data.")
 
     by_type = {}
     total_debit = total_credit = 0.0
