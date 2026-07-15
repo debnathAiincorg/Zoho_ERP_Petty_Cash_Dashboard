@@ -2,9 +2,9 @@
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
   "period": "2026-07-01 to 2026-07-14",
-  "generated_at": "2026-07-15 09:25",
+  "generated_at": "2026-07-15 05:47",
   "summary_counts": {
-    "journal": 69,
+    "journal": 71,
     "bill_payment": 1
   },
   "entries": [
@@ -19,18 +19,18 @@
     {
       "type": "journal",
       "date": "2026-07-02",
-      "reference_number": "1384",
-      "description": "Payment to Pratim,Petty Cash\nWashroom Renovation \n\nDrum rent 50/- per day  - 50/-\nTransport - 50/-\n\n\nAND HOME GAS CYLINDER PURCHASE",
-      "debit": 0,
-      "credit": 1400.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-02",
       "reference_number": "1440",
       "description": "MILK 60, BANANA 20, MANGO2KG 100, GOOD DAY BISCUIT 38,\nTOP BISCUIT 28, EGG 120, CHILI 5, KALO JIRE 10, MURI 35, UCCHE 20, DATES 250G 40, SOSA 10, RICE 1KG 60, JAGGERY 25",
       "debit": 0,
       "credit": 571.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-02",
+      "reference_number": "1384",
+      "description": "Payment to Pratim,Petty Cash\nWashroom Renovation \n\nDrum rent 50/- per day  - 50/-\nTransport - 50/-\n\n\nAND HOME GAS CYLINDER PURCHASE",
+      "debit": 0,
+      "credit": 1400.0
     },
     {
       "type": "journal",
@@ -143,6 +143,14 @@
       "description": "199 RECHARGE, BISCUIT 28,LABANGA 20, MANGO 130, LEBU 10, BANANA 25, TULSI 10, 1000 dmb refund to sm",
       "debit": 0,
       "credit": 1422.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-14",
+      "reference_number": "1583",
+      "description": " MILK 30, EGG 120, TOP BISCUIT 28,HANDWASH 10, SURF 10, XEROX 2",
+      "debit": 0,
+      "credit": 200.0
     },
     {
       "type": "journal",
