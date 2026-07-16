@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-07-14",
-  "generated_at": "2026-07-15 05:47",
+  "period": "2026-07-01 to 2026-07-15",
+  "generated_at": "2026-07-16 11:20",
   "summary_counts": {
-    "journal": 71,
+    "journal": 72,
     "bill_payment": 1
   },
   "entries": [
@@ -159,6 +159,22 @@
       "description": "Payment to Pratim\n\nWashroom Renovation \n11.07.26\nDrum rent 100/- per day\n2 day - 200/-\nTransport - 50+50=100/-",
       "debit": 0,
       "credit": 300.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-15",
+      "reference_number": "1584",
+      "description": "banana4 20, good day 38, til 100g 30, pepe 10, top biscuit 28, chire2 20, misti kumro 10, potol 10, medicine 10",
+      "debit": 0,
+      "credit": 176.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-15",
+      "reference_number": "1582",
+      "description": "refund from NC ROY returned through srijan banerzee from the bill of 4120 to 3290",
+      "debit": 200.0,
+      "credit": 0
     }
   ]
 }
