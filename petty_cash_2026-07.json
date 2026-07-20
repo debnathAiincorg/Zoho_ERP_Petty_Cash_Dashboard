@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-07-14",
-  "generated_at": "2026-07-15 12:56",
+  "period": "2026-07-01 to 2026-07-18",
+  "generated_at": "2026-07-19 06:31",
   "summary_counts": {
-    "journal": 71,
+    "journal": 75,
     "bill_payment": 1
   },
   "entries": [
@@ -43,18 +43,18 @@
     {
       "type": "journal",
       "date": "2026-07-04",
-      "reference_number": "1484",
-      "description": "MILK1 30, BANANA4 20, LEBU LANKA 20, TOP BISCUIT 28, PEPE 10, KUMRO 25, TOMATO 10, POTATO 23, ONION 20, DHUP 100, MASALA 15, CHANACHUR 120",
-      "debit": 0,
-      "credit": 421.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-04",
       "reference_number": "1480",
       "description": "WITHDRAWL AND PETTY CASH ADDED ",
       "debit": 5000.0,
       "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-04",
+      "reference_number": "1484",
+      "description": "MILK1 30, BANANA4 20, LEBU LANKA 20, TOP BISCUIT 28, PEPE 10, KUMRO 25, TOMATO 10, POTATO 23, ONION 20, DHUP 100, MASALA 15, CHANACHUR 120",
+      "debit": 0,
+      "credit": 421.0
     },
     {
       "type": "journal",
@@ -123,18 +123,18 @@
     {
       "type": "journal",
       "date": "2026-07-11",
-      "reference_number": "1561",
-      "description": "lebu lanka 20",
-      "debit": 0,
-      "credit": 20.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-11",
       "reference_number": "1560",
       "description": "petty cash added",
       "debit": 5000.0,
       "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-11",
+      "reference_number": "1561",
+      "description": "lebu lanka 20",
+      "debit": 0,
+      "credit": 20.0
     },
     {
       "type": "journal",
@@ -159,6 +159,46 @@
       "description": "Payment to Pratim\n\nWashroom Renovation \n11.07.26\nDrum rent 100/- per day\n2 day - 200/-\nTransport - 50+50=100/-",
       "debit": 0,
       "credit": 300.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-15",
+      "reference_number": "1584",
+      "description": "banana4 20, good day 38, til 100g 30, pepe 10, top biscuit 28, chire2 20, misti kumro 10, potol 10, medicine 10",
+      "debit": 0,
+      "credit": 176.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-15",
+      "reference_number": "1582",
+      "description": "refund from NC ROY returned through srijan banerzee from the bill of 4120 to 3290",
+      "debit": 200.0,
+      "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-16",
+      "reference_number": "1594",
+      "description": "MILK 30, MANGO 560G 70, GUAVA 50, BANANA 20, COMFORT 57, XEROX 2, PILLOW 100",
+      "debit": 0,
+      "credit": 329.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-16",
+      "reference_number": "1587",
+      "description": "INVESTMENT IN GOLD \nPrevious Advance Paid 70000/- (Paid on 13/06/2026)\nBalance Paid  59237/-\nEXTRA HM CHARGE 89",
+      "debit": 1.0,
+      "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-17",
+      "reference_number": "1603",
+      "description": "MILK 30, PHENYLE 70, HARPIC 105, ACID 28, CLOCK BATTERY 100, TERMERIC 10, RICE 90, GINGER 20",
+      "debit": 0,
+      "credit": 453.0
     }
   ]
 }
