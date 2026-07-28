@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-07-26",
-  "generated_at": "2026-07-27 06:31",
+  "period": "2026-07-01 to 2026-07-27",
+  "generated_at": "2026-07-28 04:31",
   "summary_counts": {
-    "journal": 82,
+    "journal": 83,
     "bill_payment": 1
   },
   "entries": [
@@ -255,6 +255,14 @@
       "description": "MILK 2 60, BANANA4 20, TOP BISCUIT 28, LEBU LANKA 20, BRINGEL 30, FISH EGG 300G 50, GUAVA 20, MEDICINE 160, MURI250G 18, PEN 8.",
       "debit": 0,
       "credit": 414.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-27",
+      "reference_number": "1699",
+      "description": "MILK 30, BANANA 10, TOP BISCUIT 28, SOOJI 12, UCCHE 10, CARROT 25, GINGER 15, LEBU 5, KUMRO 15",
+      "debit": 0,
+      "credit": 150.0
     }
   ]
 }
