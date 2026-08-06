@@ -53,6 +53,11 @@ ACCOUNT_ID = "3545384000000056141"
 ACCOUNT_NAME = "Petty Cash"
 PROGRESS_EVERY = 200  # ~once per page, since per_page=200 below
 DASHBOARD_PATH = "petty_cash_dashboard.html"
+# Single cumulative ledger, not one file per month - each run re-fetches only
+# its own target period from Zoho and splices that slice back into whatever
+# was already saved for every other period (see merge_entries()), so the
+# file keeps growing across month boundaries instead of being replaced.
+OUTPUT_PATH = "petty_cash.json"
 
 _DASHBOARD_DATA_BLOCK = re.compile(
     r'(<script type="application/json" id="petty-cash-data">\n).*?(\n</script>)',
@@ -176,7 +181,7 @@ def _previous_month(year: int, month: int):
 
 
 def compute_period(month_arg: str, today: date = None):
-    """(start, end, output_path) for the target month.
+    """(start, end) for the target month.
 
     "Up to the previous completed day" - today is never included, since
     it isn't finished yet:
@@ -213,12 +218,31 @@ def compute_period(month_arg: str, today: date = None):
     end = (today - timedelta(days=1)) if is_current_month else month_end
     end = min(end, today)  # safety net if a future month is explicitly requested
 
-    output_path = f"petty_cash_{year:04d}-{month:02d}.json"
-    return start, end, output_path
+    return start, end
 
 
 def in_period(d: str, start_str: str, end_str: str) -> bool:
     return bool(d) and start_str <= d <= end_str
+
+
+def merge_entries(existing: list, fresh: list, start_str: str, end_str: str) -> list:
+    """Splice fresh's period into existing, keeping every entry existing has
+    OUTSIDE [start_str, end_str] untouched and replacing everything inside it
+    with fresh - so re-running for a period always reflects Zoho's current
+    state for it (picks up edits/new entries, drops deleted ones) without
+    disturbing any other month already saved in the file.
+    """
+    kept = [e for e in existing if not in_period(e.get("date", ""), start_str, end_str)]
+    merged = kept + fresh
+    merged.sort(key=lambda e: e["date"] or "")
+    return merged
+
+
+def load_existing_entries(path: str) -> list:
+    if not os.path.exists(path):
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f).get("entries", [])
 
 
 def safe_fetch(module_label: str, fetch_fn):
@@ -414,10 +438,10 @@ def main():
         sys.exit("ERROR: set ZOHO_ORGANIZATION_ID in .env")
 
     args = parse_args()
-    period_start, period_end, output_path = compute_period(args.month)
+    period_start, period_end = compute_period(args.month)
     start_str, end_str = period_start.isoformat(), period_end.isoformat()
 
-    print(f"Period: {start_str} to {end_str}  ->  {output_path}")
+    print(f"Period: {start_str} to {end_str}  ->  {OUTPUT_PATH}")
     print("Authenticating...")
     token = get_access_token()
 
@@ -433,21 +457,6 @@ def main():
     entries += safe_fetch("/customerpayments", lambda: fetch_month_customer_payments(token, start_str, end_str))
     entries.sort(key=lambda e: e["date"] or "")
 
-    result = {
-        "account_name": ACCOUNT_NAME,
-        "account_id": ACCOUNT_ID,
-        "period": f"{start_str} to {end_str}",
-        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "summary_counts": summary_counts,
-        "entries": entries,
-    }
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
-
-    if update_dashboard_html(result):
-        print(f"Refreshed {DASHBOARD_PATH} with this run's data.")
-
     by_type = {}
     total_debit = total_credit = 0.0
     for e in entries:
@@ -455,8 +464,28 @@ def main():
         total_debit += e["debit"] or 0
         total_credit += e["credit"] or 0
     breakdown = ", ".join(f"{v} {k}" for k, v in by_type.items()) or "0 entries"
-    print(f"Saved {len(entries)} entries ({breakdown}) to {output_path}")
+    print(f"Fetched {len(entries)} entries ({breakdown}) for {start_str} to {end_str}")
     print(f"Total debit: {total_debit:,.2f} | Total credit: {total_credit:,.2f}")
+
+    all_entries = merge_entries(load_existing_entries(OUTPUT_PATH), entries, start_str, end_str)
+    all_dates = [e["date"] for e in all_entries if e.get("date")]
+
+    result = {
+        "account_name": ACCOUNT_NAME,
+        "account_id": ACCOUNT_ID,
+        "period": f"{min(all_dates)} to {max(all_dates)}" if all_dates else f"{start_str} to {end_str}",
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "summary_counts": summary_counts,
+        "entries": all_entries,
+    }
+
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+
+    if update_dashboard_html(result):
+        print(f"Refreshed {DASHBOARD_PATH} with this run's data.")
+
+    print(f"Saved {len(all_entries)} total entries to {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":

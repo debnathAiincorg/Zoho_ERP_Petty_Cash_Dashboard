@@ -21,8 +21,11 @@ center) using OAuth2 and exports one account's monthly activity
      actually filters server-side despite accepting it.
   5. Merges all three into one date-sorted list, each entry tagged
      `"type": "journal" | "vendor_payment" | "customer_payment"`.
-  6. Writes `petty_cash_YYYY-MM.json` (one file per month — past months
-     are never overwritten).
+  6. Writes `petty_cash.json` — a single cumulative ledger, not one file
+     per month. Each run splices its fetched period back into whatever
+     was already saved for every other period, so past months are kept
+     but the currently-fetched period is always replaced with Zoho's
+     latest state for it.
 - **`petty_cash_dashboard.html`** — self-contained HTML/CSS/JS dashboard
   (no build step, no server). Reads data that's embedded directly in the
   file (not a live `fetch()` of the JSON), so refreshing it means
@@ -58,15 +61,13 @@ Zoho ERP data.
 
 ## Known-correct baseline (for verifying nothing's broken)
 
-`python petty_cash_report.py --month 2026-07` should always produce:
-
-```
-Saved 14 entries (13 journal, 1 vendor_payment) to petty_cash_2026-07.json
-Total debit: 5,000.00 | Total credit: 7,702.00
-```
-
-If a future change to the script produces a different result for this
-same month, something regressed — investigate before trusting new output.
+`python petty_cash_report.py --month 2026-07` prints a "Fetched N entries
+... for 2026-07-01 to 2026-07-31" line followed by a "Saved N total entries
+to petty_cash.json" line (the second N is the whole cumulative file, not
+just July). The specific counts drift as real transactions get added in
+Zoho, so there's no fixed number to check against — but a run that instead
+errors, returns 0 entries, or fetches only a fraction of a normally-active
+month is worth investigating before trusting the output.
 
 Do not commit or display the contents of `.env` in any output, logs, or
 git history.
