@@ -2,7 +2,7 @@
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
   "period": "2026-08-01 to 2026-08-05",
-  "generated_at": "2026-08-06 04:30",
+  "generated_at": "2026-08-06 05:18",
   "summary_counts": {
     "journal": 93,
     "bill_payment": 1
@@ -38,7 +38,7 @@
       "reference_number": "1774",
       "description": "Sweets - 6pcs x 10= 60/-\nBananas - 5pcs x 4= 20/-\nToffee - 5pcs x 2= 10/-",
       "debit": 0,
-      "credit": 90.0
+      "credit": 510.0
     }
   ]
 }
