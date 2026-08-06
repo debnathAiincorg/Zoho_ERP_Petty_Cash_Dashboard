@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-08-01 to 2026-08-04",
-  "generated_at": "2026-08-05 06:30",
+  "period": "2026-08-01 to 2026-08-05",
+  "generated_at": "2026-08-06 04:30",
   "summary_counts": {
-    "journal": 92,
+    "journal": 93,
     "bill_payment": 1
   },
   "entries": [
@@ -31,6 +31,14 @@
       "description": "MILK 90, RICE 130, GUAVA 25, JAGGERY150G 12, KHOI 32, BANANA 20, POTATO 10, CARROT 25, UCCHE 10, BEGUN 20, CUCUMBER 10, KABLI CHOLA 30.",
       "debit": 0,
       "credit": 414.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-05",
+      "reference_number": "1774",
+      "description": "Sweets - 6pcs x 10= 60/-\nBananas - 5pcs x 4= 20/-\nToffee - 5pcs x 2= 10/-",
+      "debit": 0,
+      "credit": 90.0
     }
   ]
 }
