@@ -889,12 +889,23 @@
     var parts = s.split("-").map(Number);
     return new Date(parts[0], parts[1] - 1, parts[2]);
   }
-  var periodParts = raw.period.split(" to ");
-  var startDate = parseISO(periodParts[0]);
-  var endDate = parseISO(periodParts[1]);
+  // raw.entries/raw.period now span the whole cumulative history (petty_cash.json
+  // holds every month, not just one), but the chart should only ever show the
+  // latest (current) month - so scope it to entries whose "YYYY-MM" matches the
+  // most recent date in the data, rather than the full period range.
+  var latestDate = entries.reduce(function (max, j) {
+    return j.date && j.date > max ? j.date : max;
+  }, "");
+  var currentMonthPrefix = latestDate.slice(0, 7);
+  var chartEntries = entries.filter(function (j) {
+    return j.date && j.date.slice(0, 7) === currentMonthPrefix;
+  });
+
+  var startDate = parseISO(currentMonthPrefix + "-01");
+  var endDate = parseISO(latestDate);
 
   var byDate = {};
-  entries.forEach(function (j) {
+  chartEntries.forEach(function (j) {
     if (!byDate[j.date]) byDate[j.date] = { debit: 0, credit: 0 };
     byDate[j.date].debit += Number(j.debit) || 0;
     byDate[j.date].credit += Number(j.credit) || 0;
