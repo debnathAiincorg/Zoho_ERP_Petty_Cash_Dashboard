@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-08-05",
-  "generated_at": "2026-08-06 06:30",
+  "period": "2026-07-01 to 2026-08-06",
+  "generated_at": "2026-08-07 10:00 IST",
   "summary_counts": {
-    "journal": 93,
+    "journal": 94,
     "bill_payment": 1
   },
   "entries": [
@@ -351,6 +351,14 @@
       "description": "Sweets - 6pcs x 10= 60/-\nBananas - 5pcs x 4= 20/-\nToffee - 5pcs x 2= 10/-",
       "debit": 0,
       "credit": 510.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-06",
+      "reference_number": "1786",
+      "description": "TOP BISCUIT 28",
+      "debit": 0,
+      "credit": 28.0
     }
   ]
 }
