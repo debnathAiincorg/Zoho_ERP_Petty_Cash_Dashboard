@@ -25,7 +25,8 @@ import os
 import re
 import sys
 import time
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import requests
 from dotenv import load_dotenv
@@ -474,7 +475,7 @@ def main():
         "account_name": ACCOUNT_NAME,
         "account_id": ACCOUNT_ID,
         "period": f"{min(all_dates)} to {max(all_dates)}" if all_dates else f"{start_str} to {end_str}",
-        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "generated_at": datetime.now(timezone.utc).astimezone(ZoneInfo("Asia/Kolkata")).strftime("%Y-%m-%d %H:%M IST"),
         "summary_counts": summary_counts,
         "entries": all_entries,
     }
