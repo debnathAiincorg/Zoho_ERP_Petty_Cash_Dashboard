@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-08-07",
-  "generated_at": "2026-08-09 12:00 IST",
+  "period": "2026-07-01 to 2026-08-08",
+  "generated_at": "2026-08-10 10:05 IST",
   "summary_counts": {
-    "journal": 95,
+    "journal": 97,
     "bill_payment": 1
   },
   "entries": [
@@ -364,6 +364,14 @@
       "type": "journal",
       "date": "2026-08-07",
       "reference_number": "1799",
+      "description": "Milk - 1pc x 30= 30/-\nBananas - 4pcs x 5= 20/-\nMurki - 200gm = 24/-\nTrifola dust - 20/-\nSalt - 1kg - 30/-\nMuri - 500gm - 35/-",
+      "debit": 0,
+      "credit": 159.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-08",
+      "reference_number": "1809",
       "description": "Milk - 1pc x 30= 30/-\nBananas - 4pcs x 5= 20/-\nMurki - 200gm = 24/-\nTrifola dust - 20/-\nSalt - 1kg - 30/-\nMuri - 500gm - 35/-",
       "debit": 0,
       "credit": 159.0
