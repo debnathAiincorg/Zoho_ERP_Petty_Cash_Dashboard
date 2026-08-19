@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-08-14",
-  "generated_at": "2026-08-18 12:01 IST",
+  "period": "2026-07-01 to 2026-08-18",
+  "generated_at": "2026-08-19 10:01 IST",
   "summary_counts": {
-    "journal": 102,
+    "journal": 103,
     "bill_payment": 1
   },
   "entries": [
@@ -423,6 +423,14 @@
       "description": "Milk - 2pc x 30 = 60/-\nBananas - 7pcs = 38/-\nNuts - 1pckt = 110/-\nPoha - 250gm = 20/-\nGuava - 450gm = 20/-\nCarrot & Beans = 40/-\nPasta - 100gm = 10/-\nPasta Masala - 2pckt x 5 = 10/-\nRich Marie Biscuit - 1pckt = 33/",
       "debit": 0,
       "credit": 761.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-18",
+      "reference_number": "1926",
+      "description": "banana 10, gooddaybiscuit 38, potato500g 12, muri 18, piyara 30, xerox 4, medicine 284, jhinge 24, tomato 10",
+      "debit": 0,
+      "credit": 430.0
     }
   ]
 }
