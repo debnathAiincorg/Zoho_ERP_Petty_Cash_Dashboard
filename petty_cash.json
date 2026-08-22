@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-08-20",
-  "generated_at": "2026-08-21 12:01 IST",
+  "period": "2026-07-01 to 2026-08-21",
+  "generated_at": "2026-08-22 10:01 IST",
   "summary_counts": {
-    "journal": 106,
+    "journal": 107,
     "bill_payment": 1
   },
   "entries": [
@@ -455,6 +455,14 @@
       "description": "MILK 30, BANANA 20, UCCHE 10, GUAVA600G 45, SURF EXCEL500G 72, TEZ PATA 5, SHAMPOO5 5",
       "debit": 0,
       "credit": 187.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-21",
+      "reference_number": "1971",
+      "description": "MILK 30, BANANA 11, EGG 105, TOP BISCUIT 28, PUMPKIN 10, SAK 10, SCOTCH BRITE 20, GINGER 20, XEROX 1",
+      "debit": 0,
+      "credit": 250.0
     }
   ]
 }
