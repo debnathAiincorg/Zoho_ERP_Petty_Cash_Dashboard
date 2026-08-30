@@ -1,11 +1,11 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-08-28",
-  "generated_at": "2026-08-29 12:01 IST",
+  "period": "2026-07-01 to 2026-08-29",
+  "generated_at": "2026-08-30 10:01 IST",
   "summary_counts": {
-    "journal": 114,
-    "bill_payment": 1
+    "journal": 116,
+    "bill_payment": 2
   },
   "entries": [
     {
@@ -519,6 +519,30 @@
       "description": "MILK 30, EGG 110, BRINGLE 30, SHIRT IRON 10, CHANACHUR 65, MEDICINE 245",
       "debit": 0,
       "credit": 490.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-29",
+      "reference_number": "2038",
+      "description": "MILK 2 60, BANANA4 22LEBU LANKA 20, SORSE GURO 15, POSTO 45, JIRE GURO 20, DHONE GURO 20, MEDICINE 23, PAPOR 20, UCCHE 10, GINGER 20, AMRA 10, SAK 10",
+      "debit": 0,
+      "credit": 295.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-29",
+      "reference_number": "2039",
+      "description": "200pbs, 20 sm bazar, 20 VIM, 175 SSM BAZAR",
+      "debit": 0,
+      "credit": 415.0
+    },
+    {
+      "type": "vendor_payment",
+      "date": "2026-08-29",
+      "reference_number": "205",
+      "description": "Vendor payment - Hackwer (Bill #176)",
+      "debit": 0,
+      "credit": 410.0
     }
   ]
 }
