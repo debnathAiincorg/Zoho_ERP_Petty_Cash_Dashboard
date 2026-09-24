@@ -376,27 +376,27 @@
     <div class="kpi-card">
       <div class="kpi-label">Opening balance</div>
       <div class="kpi-value" id="kpi-opening">—</div>
-      <div class="kpi-sub">Start of period</div>
+      <div class="kpi-sub" id="kpi-opening-sub">Start of day</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">Money available</div>
-      <div class="kpi-value" id="kpi-available">—</div>
-      <div class="kpi-sub">Opening + debits</div>
+      <div class="kpi-label">Money withdrawn</div>
+      <div class="kpi-value" id="kpi-withdrawn">—</div>
+      <div class="kpi-sub" id="kpi-withdrawn-sub">Month opening + money added</div>
     </div>
     <div class="kpi-card credit">
-      <div class="kpi-label">Total expenses</div>
-      <div class="kpi-value" id="kpi-expenses">—</div>
-      <div class="kpi-sub">Total credits</div>
+      <div class="kpi-label">Total monthly expense</div>
+      <div class="kpi-value" id="kpi-month-exp">—</div>
+      <div class="kpi-sub" id="kpi-month-exp-sub">This month to date</div>
+    </div>
+    <div class="kpi-card credit">
+      <div class="kpi-label">Previous day total exp.</div>
+      <div class="kpi-value" id="kpi-day-exp">—</div>
+      <div class="kpi-sub" id="kpi-day-exp-sub">Latest day's expenses</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Closing balance</div>
       <div class="kpi-value" id="kpi-closing">—</div>
-      <div class="kpi-sub">End of period</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-label">Entries</div>
-      <div class="kpi-value" id="kpi-count">—</div>
-      <div class="kpi-sub">In this period</div>
+      <div class="kpi-sub" id="kpi-closing-sub">End of day</div>
     </div>
   </section>
 
@@ -1214,13 +1214,6 @@
   document.getElementById("meta-account-id").textContent = raw.account_id;
 
   // ---- KPIs ----
-  var totalDebit = 0, totalCredit = 0;
-  entries.forEach(function (j) {
-    totalDebit += Number(j.debit) || 0;
-    totalCredit += Number(j.credit) || 0;
-  });
-
-  document.getElementById("kpi-count").textContent = entries.length.toLocaleString("en-IN");
   document.getElementById("footer-count").textContent = entries.length;
 
   // ---- Opening/closing balance ----
@@ -1242,13 +1235,46 @@
     runningBalance += (Number(e.debit) || 0) - (Number(e.credit) || 0);
     e.runningBalance = runningBalance;
   });
+  // The balance cards are all about the LATEST day in the data (the last
+  // completed day, e.g. 23 Sep in a 24 Sep snapshot) and its month:
+  //   Opening  = balance before that day = the previous day's closing
+  //   Closing  = balance after that day's entries
+  //   Monthly expense = credits from the 1st of that month to that day
+  //   Previous day exp = that day's credits
+  //   Money withdrawn  = balance on the 1st (last month's closing) + that
+  //                      month's debits (money added)
+  var lastDay = chronological.length ? chronological[chronological.length - 1].date : "";
+  var monthPrefix = lastDay.slice(0, 7);
+  var dayOpening = OPENING_BALANCE, monthOpening = OPENING_BALANCE;
+  var monthDebit = 0, monthCredit = 0, dayCredit = 0;
+  chronological.forEach(function (e) {
+    if (e.date < monthPrefix + "-01") monthOpening = e.runningBalance;
+    if (e.date < lastDay) dayOpening = e.runningBalance;
+    if (e.date.slice(0, 7) === monthPrefix) {
+      monthDebit += Number(e.debit) || 0;
+      monthCredit += Number(e.credit) || 0;
+    }
+    if (e.date === lastDay) dayCredit += Number(e.credit) || 0;
+  });
   var closingBalance = runningBalance;
-  var totalAvailable = OPENING_BALANCE + totalDebit;
+  // Local label helper - the chart's shortDate()/MONTHS are declared further
+  // down and not yet assigned at this point.
+  function dayMonth(iso) {
+    var parts = iso.split("-");
+    return parseInt(parts[2], 10) + " " + FULL_MONTHS[parseInt(parts[1], 10) - 1].slice(0, 3);
+  }
+  var dayLabel = lastDay ? dayMonth(lastDay) : "—";
 
-  document.getElementById("kpi-opening").textContent = money(OPENING_BALANCE);
-  document.getElementById("kpi-available").textContent = money(totalAvailable);
-  document.getElementById("kpi-expenses").textContent = money(totalCredit);
+  document.getElementById("kpi-opening").textContent = money(dayOpening);
+  document.getElementById("kpi-opening-sub").textContent = "Start of " + dayLabel;
   document.getElementById("kpi-closing").textContent = money(closingBalance);
+  document.getElementById("kpi-closing-sub").textContent = "End of " + dayLabel;
+  document.getElementById("kpi-month-exp").textContent = money(monthCredit);
+  document.getElementById("kpi-month-exp-sub").textContent = lastDay ? dayMonth(monthPrefix + "-01") + " to " + dayLabel : "—";
+  document.getElementById("kpi-day-exp").textContent = money(dayCredit);
+  document.getElementById("kpi-day-exp-sub").textContent = dayLabel;
+  document.getElementById("kpi-withdrawn").textContent = money(monthOpening + monthDebit);
+  document.getElementById("kpi-withdrawn-sub").textContent = money(monthOpening) + " opening + " + money(monthDebit) + " added";
   document.getElementById("kpi-refreshed").textContent = dataAsOf(raw.generated_at);
 
   // ---- Daily aggregation (only days with at least one transaction; empty
