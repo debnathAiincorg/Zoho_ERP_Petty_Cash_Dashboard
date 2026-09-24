@@ -2,7 +2,7 @@
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
   "period": "2026-07-01 to 2026-09-23",
-  "generated_at": "2026-09-24 10:01 IST",
+  "generated_at": "2026-09-24 10:40 IST",
   "summary_counts": {
     "journal": 140,
     "bill_payment": 2
@@ -19,18 +19,18 @@
     {
       "type": "journal",
       "date": "2026-07-02",
-      "reference_number": "1440",
-      "description": "MILK 60, BANANA 20, MANGO2KG 100, GOOD DAY BISCUIT 38,\nTOP BISCUIT 28, EGG 120, CHILI 5, KALO JIRE 10, MURI 35, UCCHE 20, DATES 250G 40, SOSA 10, RICE 1KG 60, JAGGERY 25",
-      "debit": 0,
-      "credit": 571.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-02",
       "reference_number": "1384",
       "description": "Payment to Pratim,Petty Cash\nWashroom Renovation \n\nDrum rent 50/- per day  - 50/-\nTransport - 50/-\n\n\nAND HOME GAS CYLINDER PURCHASE",
       "debit": 0,
       "credit": 1400.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-02",
+      "reference_number": "1440",
+      "description": "MILK 60, BANANA 20, MANGO2KG 100, GOOD DAY BISCUIT 38,\nTOP BISCUIT 28, EGG 120, CHILI 5, KALO JIRE 10, MURI 35, UCCHE 20, DATES 250G 40, SOSA 10, RICE 1KG 60, JAGGERY 25",
+      "debit": 0,
+      "credit": 571.0
     },
     {
       "type": "journal",
@@ -59,18 +59,18 @@
     {
       "type": "journal",
       "date": "2026-07-06",
-      "reference_number": "1485",
-      "description": "SSM BAZAR 290, PARLOUR ITEM  HAIR BAND 200, UPEN 660\n\nPayment to Srijan da UPI\n\n05.07.26\nWashroom Renovation \nBrush - 40/-",
-      "debit": 0,
-      "credit": 1190.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-06",
       "reference_number": "1506",
       "description": "MILK 30, BANANA 10, MANGO1KG500G 110, PIYARA 20, CHANACHUR 120, MARIE GOLD BISCUIT 48, TOP BISCUIT 28",
       "debit": 0,
       "credit": 366.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-06",
+      "reference_number": "1485",
+      "description": "SSM BAZAR 290, PARLOUR ITEM  HAIR BAND 200, UPEN 660\n\nPayment to Srijan da UPI\n\n05.07.26\nWashroom Renovation \nBrush - 40/-",
+      "debit": 0,
+      "credit": 1190.0
     },
     {
       "type": "vendor_payment",
@@ -91,18 +91,18 @@
     {
       "type": "journal",
       "date": "2026-07-08",
-      "reference_number": "1509",
-      "description": "milk 30, banana 10, mango 2kg 180, cha pata 42, bekary biscuit 18, jhinga 14",
-      "debit": 0,
-      "credit": 294.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-08",
       "reference_number": "1514",
       "description": "MASI HOUSE KEEPING MONTHLY PAYMENT AND RECHARGE",
       "debit": 0,
       "credit": 1800.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-08",
+      "reference_number": "1509",
+      "description": "milk 30, banana 10, mango 2kg 180, cha pata 42, bekary biscuit 18, jhinga 14",
+      "debit": 0,
+      "credit": 294.0
     },
     {
       "type": "journal",
@@ -123,18 +123,18 @@
     {
       "type": "journal",
       "date": "2026-07-11",
-      "reference_number": "1561",
-      "description": "lebu lanka 20",
-      "debit": 0,
-      "credit": 20.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-11",
       "reference_number": "1560",
       "description": "petty cash added",
       "debit": 5000.0,
       "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-11",
+      "reference_number": "1561",
+      "description": "lebu lanka 20",
+      "debit": 0,
+      "credit": 20.0
     },
     {
       "type": "journal",
@@ -147,14 +147,6 @@
     {
       "type": "journal",
       "date": "2026-07-14",
-      "reference_number": "1583",
-      "description": " MILK 30, EGG 120, TOP BISCUIT 28,HANDWASH 10, SURF 10, XEROX 2",
-      "debit": 0,
-      "credit": 200.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-14",
       "reference_number": "1543",
       "description": "Payment to Pratim\n\nWashroom Renovation \n11.07.26\nDrum rent 100/- per day\n2 day - 200/-\nTransport - 50+50=100/-",
       "debit": 0,
@@ -162,11 +154,11 @@
     },
     {
       "type": "journal",
-      "date": "2026-07-15",
-      "reference_number": "1584",
-      "description": "banana4 20, good day 38, til 100g 30, pepe 10, top biscuit 28, chire2 20, misti kumro 10, potol 10, medicine 10",
+      "date": "2026-07-14",
+      "reference_number": "1583",
+      "description": " MILK 30, EGG 120, TOP BISCUIT 28,HANDWASH 10, SURF 10, XEROX 2",
       "debit": 0,
-      "credit": 176.0
+      "credit": 200.0
     },
     {
       "type": "journal",
@@ -178,19 +170,27 @@
     },
     {
       "type": "journal",
-      "date": "2026-07-16",
-      "reference_number": "1594",
-      "description": "MILK 30, MANGO 560G 70, GUAVA 50, BANANA 20, COMFORT 57, XEROX 2, PILLOW 100",
+      "date": "2026-07-15",
+      "reference_number": "1584",
+      "description": "banana4 20, good day 38, til 100g 30, pepe 10, top biscuit 28, chire2 20, misti kumro 10, potol 10, medicine 10",
       "debit": 0,
-      "credit": 329.0
+      "credit": 176.0
     },
     {
       "type": "journal",
       "date": "2026-07-16",
       "reference_number": "1587",
-      "description": "INVESTMENT IN GOLD \nPrevious Advance Paid 70000/- (Paid on 13/06/2026)\nBalance Paid  59237/-\nEXTRA HM CHARGE 89",
+      "description": "INVESTMENT IN GOLD \nPrevious Advance Paid 70000/- (Paid on 13/06/2026)\nBalance Paid  59237/-\nEXTRA HM CHARGE 89\n\nDOC/I/KSC/1293",
       "debit": 1.0,
       "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-16",
+      "reference_number": "1594",
+      "description": "MILK 30, MANGO 560G 70, GUAVA 50, BANANA 20, COMFORT 57, XEROX 2, PILLOW 100",
+      "debit": 0,
+      "credit": 329.0
     },
     {
       "type": "journal",
@@ -267,18 +267,18 @@
     {
       "type": "journal",
       "date": "2026-07-28",
-      "reference_number": "1711",
-      "description": "MILK 30, BANANA 21, DATES 37, VENDI 10, MEDICINE 23, POTATO500G 10, TOMATO 12",
-      "debit": 0,
-      "credit": 143.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-28",
       "reference_number": "1710",
       "description": "TRF TO PETTY CASH",
       "debit": 5000.0,
       "credit": 0
+    },
+    {
+      "type": "journal",
+      "date": "2026-07-28",
+      "reference_number": "1711",
+      "description": "MILK 30, BANANA 21, DATES 37, VENDI 10, MEDICINE 23, POTATO500G 10, TOMATO 12",
+      "debit": 0,
+      "credit": 143.0
     },
     {
       "type": "journal",
@@ -291,14 +291,6 @@
     {
       "type": "journal",
       "date": "2026-07-30",
-      "reference_number": "1720",
-      "description": "MILK 30, PIYAARA 20, JHINGE 20, COCONUT 20, FISH CUTTING 20, MARIE GOLD 48, BANANA 12, RIKSHAW VARA 15, DAL 300G 27, PEPE 500G 20",
-      "debit": 0,
-      "credit": 232.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-07-30",
       "reference_number": "1721",
       "description": "FOR FISH , PALERBAJAR BABSAI SOMITI",
       "debit": 0,
@@ -307,10 +299,10 @@
     {
       "type": "journal",
       "date": "2026-07-30",
-      "reference_number": "1721",
-      "description": "FOR FISH , PALERBAJAR BABSAI SOMITI",
-      "debit": 700.0,
-      "credit": 0
+      "reference_number": "1720",
+      "description": "MILK 30, PIYAARA 20, JHINGE 20, COCONUT 20, FISH CUTTING 20, MARIE GOLD 48, BANANA 12, RIKSHAW VARA 15, DAL 300G 27, PEPE 500G 20",
+      "debit": 0,
+      "credit": 232.0
     },
     {
       "type": "journal",
@@ -482,19 +474,19 @@
     },
     {
       "type": "journal",
-      "date": "2026-08-24",
-      "reference_number": "1992",
-      "description": "PETTY CASH WILL BE ADDED ON 26TH",
-      "debit": 5000.0,
-      "credit": 0
-    },
-    {
-      "type": "journal",
       "date": "2026-08-25",
       "reference_number": "1993",
       "description": "MILK 30, BANANA 24, ACID 56",
       "debit": 0,
       "credit": 110.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-08-26",
+      "reference_number": "1992",
+      "description": "PETTY CASH WILL BE ADDED ON 26TH",
+      "debit": 5000.0,
+      "credit": 0
     },
     {
       "type": "journal",

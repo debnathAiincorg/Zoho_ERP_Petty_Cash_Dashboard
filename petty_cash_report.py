@@ -442,6 +442,17 @@ def main():
     period_start, period_end = compute_period(args.month)
     start_str, end_str = period_start.isoformat(), period_end.isoformat()
 
+    # A default run re-fetches the WHOLE saved history, not just the current
+    # month - Zoho entries in past months get edited/re-dated/deleted after
+    # the fact (e.g. journal 1721's 700 debit line removed, journal 1992
+    # moved 24 Aug -> 26 Aug), and a current-month-only refresh left those
+    # stale forever, drifting every later balance away from Zoho's.
+    existing = load_existing_entries(OUTPUT_PATH)
+    if not args.month:
+        saved_dates = [e["date"] for e in existing if e.get("date")]
+        if saved_dates:
+            start_str = min(start_str, min(saved_dates)[:7] + "-01")
+
     print(f"Period: {start_str} to {end_str}  ->  {OUTPUT_PATH}")
     print("Authenticating...")
     token = get_access_token()
@@ -468,7 +479,12 @@ def main():
     print(f"Fetched {len(entries)} entries ({breakdown}) for {start_str} to {end_str}")
     print(f"Total debit: {total_debit:,.2f} | Total credit: {total_credit:,.2f}")
 
-    all_entries = merge_entries(load_existing_entries(OUTPUT_PATH), entries, start_str, end_str)
+    # safe_fetch turns a failed module into [] - never let that wipe a
+    # range that already has saved entries.
+    if not entries and any(in_period(e.get("date", ""), start_str, end_str) for e in existing):
+        sys.exit("ERROR: fetched 0 entries for a range that has saved data - not overwriting.")
+
+    all_entries = merge_entries(existing, entries, start_str, end_str)
     all_dates = [e["date"] for e in all_entries if e.get("date")]
 
     result = {
