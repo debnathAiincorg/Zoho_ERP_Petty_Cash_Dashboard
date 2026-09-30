@@ -2,9 +2,9 @@
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
   "period": "2026-07-01 to 2026-09-29",
-  "generated_at": "2026-09-30 10:03 IST",
+  "generated_at": "2026-09-30 11:03 IST",
   "summary_counts": {
-    "journal": 148,
+    "journal": 147,
     "bill_payment": 2
   },
   "entries": [
@@ -767,14 +767,6 @@
       "description": "MILK2 60, BANANA 20, PEPE 10, DHUP 70, MEDICINE 32, MEDICINE 35, BRUSH 50.",
       "debit": 0,
       "credit": 277.0
-    },
-    {
-      "type": "journal",
-      "date": "2026-09-29",
-      "reference_number": "2381",
-      "description": "Create a pay-order \nPayment to Rohit from Petty Cash\n\nDate- 29.09.2026 \n\nProject Name - Washroom Renovation \n\n16amp Socket- 80/-",
-      "debit": 0,
-      "credit": 80.0
     },
     {
       "type": "journal",
