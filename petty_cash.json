@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-09-30",
-  "generated_at": "2026-10-01 12:03 IST",
+  "period": "2026-07-01 to 2026-10-01",
+  "generated_at": "2026-10-02 10:03 IST",
   "summary_counts": {
-    "journal": 148,
+    "journal": 149,
     "bill_payment": 2
   },
   "entries": [
@@ -791,6 +791,14 @@
       "description": "MILK 30, PEPE 10, CHANACHUR 500G 120, FISH 245, FISH CUTTING 10, BRINGLE 250G 20, MEDICINE 80, POTATO 7, TOP BISCUIT 28, GINGER 25, TERMERIC 10, GARLIC 200G 70, SAK 10, COCONUT 25, MEDICINE 110",
       "debit": 0,
       "credit": 800.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-10-01",
+      "reference_number": "2417",
+      "description": "MILK 30, BANANA 20, PUFF RICE 35, ACID 28, KHOYA 28",
+      "debit": 0,
+      "credit": 141.0
     }
   ]
 }
