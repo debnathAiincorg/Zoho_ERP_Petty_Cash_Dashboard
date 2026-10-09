@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-10-07",
-  "generated_at": "2026-10-08 12:03 IST",
+  "period": "2026-07-01 to 2026-10-08",
+  "generated_at": "2026-10-09 10:03 IST",
   "summary_counts": {
-    "journal": 155,
+    "journal": 156,
     "bill_payment": 2
   },
   "entries": [
@@ -847,6 +847,14 @@
       "description": "MILK 30, BANANA 24, CHANACHUR 800G 120, KEY 30, GINGER 30, BORBOTI 10, PALON SAK 30, TULSI PATA 5, CARROT 10, LOGENCE 10, APPLE 60",
       "debit": 0,
       "credit": 359.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-10-08",
+      "reference_number": "2492",
+      "description": "MILK 30, BANANA 10, MEDICINE 20, JAGGERY 25, FEVIQUICK 5, BISCUIT 38",
+      "debit": 0,
+      "credit": 128.0
     }
   ]
 }
