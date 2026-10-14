@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-10-12",
-  "generated_at": "2026-10-13 12:03 IST",
+  "period": "2026-07-01 to 2026-10-13",
+  "generated_at": "2026-10-14 10:03 IST",
   "summary_counts": {
-    "journal": 160,
+    "journal": 161,
     "bill_payment": 2
   },
   "entries": [
@@ -887,6 +887,14 @@
       "description": "MILK 2 60, BANANA 35, BADAM 110, MURI 4",
       "debit": 0,
       "credit": 654.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-10-13",
+      "reference_number": "2562",
+      "description": "OFFICE MOBILE TELECOM RECHARGE",
+      "debit": 0,
+      "credit": 199.0
     }
   ]
 }
