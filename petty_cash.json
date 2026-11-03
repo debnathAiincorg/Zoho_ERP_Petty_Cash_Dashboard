@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-10-29",
-  "generated_at": "2026-11-03 10:03 IST",
+  "period": "2026-07-01 to 2026-11-02",
+  "generated_at": "2026-11-03 11:04 IST",
   "summary_counts": {
-    "journal": 171,
+    "journal": 174,
     "bill_payment": 2
   },
   "entries": [
@@ -975,6 +975,30 @@
       "description": "MILK 2 60, BANANA 10, PAPAYA 14, BAY LEAF 5, MEDICINE 273, SPINACH 10, CARROT 20, TOMATO 10",
       "debit": 0,
       "credit": 400.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-10-30",
+      "reference_number": "2594",
+      "description": "MILK 1 30, BANANA 10, TOP BISCUIT 2 76, CHANACHUR 120, LEMON 5, HOLY BASIL 5, CAULIFLOWER 30, SUNLIGHT 10, HAND WASH 10, VIM BAR 5, PHENYL 50",
+      "debit": 0,
+      "credit": 351.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-10-31",
+      "reference_number": "2595",
+      "description": "MILK 2 60, BANANA 3 15, , EGG 15 115, LEMON AND CHILI 20, APPLE 80,  CHANACHUR 120, POTATO 20, CUCUMBER 10, MUSK 2 10, , CARROT 20, GHEE 350",
+      "debit": 0,
+      "credit": 820.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-11-02",
+      "reference_number": "2596",
+      "description": "MILK 2 60, GILLETTE GUARD 27, CLOVE 20, CANDLE 2 60, TATA SALT 30",
+      "debit": 0,
+      "credit": 197.0
     }
   ]
 }
