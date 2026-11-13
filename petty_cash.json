@@ -1,10 +1,10 @@
 {
   "account_name": "Petty Cash",
   "account_id": "3545384000000056141",
-  "period": "2026-07-01 to 2026-11-10",
-  "generated_at": "2026-11-12 12:03 IST",
+  "period": "2026-07-01 to 2026-11-12",
+  "generated_at": "2026-11-13 10:04 IST",
   "summary_counts": {
-    "journal": 180,
+    "journal": 182,
     "bill_payment": 2
   },
   "entries": [
@@ -1047,6 +1047,22 @@
       "description": "MILK 4 120, BANANA 2 12, APPLE 85, CHANACHUR 120, EGG 120, CARROT 60, XEROX 2, LAXMAN REKHA 18, CANDLE 30",
       "debit": 0,
       "credit": 567.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-11-11",
+      "reference_number": "2633",
+      "description": "MILK 3 90, BANANA 4 22, GOOD DAY BISCUIT 38, TOP BISCUIT 38, CHANACHUR 120",
+      "debit": 0,
+      "credit": 308.0
+    },
+    {
+      "type": "journal",
+      "date": "2026-11-12",
+      "reference_number": "2636",
+      "description": "MILK 2 60, BANANA 2 10, RICE 160, CLOVE 20, GINGER 20, CARROT 25, RAW TURMERIC 10, CABAGE 20",
+      "debit": 0,
+      "credit": 325.0
     }
   ]
 }
